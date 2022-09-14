@@ -1,5 +1,5 @@
 <template>
-    <v-btn :color="color" dark class="btn" @click="$emit('onClick')" style="width: 150px; height: 45px !important;">
+    <v-btn :color="color" dark class="btn default-btn" @click="$emit('onClick')">
         <v-icon>{{ renderIcon(icon) }}</v-icon>
         {{ text }}
     </v-btn>
@@ -23,3 +23,10 @@
         },
     }
 </script>
+
+<style>
+    .default-btn {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
