@@ -41,40 +41,42 @@
             }
           "
         >
-          <v-row no-gutters class="borderContainers" style="background: #f5f5f5">
-            <v-col cols="12" sm="3">
+          <v-row no-gutters class="borderContainers" style="background: #f5f5f5;">
+            <v-col cols="12" sm="4">
               <v-text-field
                 v-model="filter.name"
                 label="Nome"
                 class="pl-2"
               ></v-text-field>
             </v-col>
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="4">
               <v-text-field v-model="filter.cpf" label="CPF" class="pl-2"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="2">
+            <v-col cols="12" sm="3">
               <v-text-field v-model="filter.ra" label="RA" class="pl-2"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="2" class="d-flex align-center">
-              <v-btn color="primary" dark class="btn" @click="getStudents(filter)">
-                Buscar
-              </v-btn>
-            </v-col>
-            <v-col cols="12" sm="2" class="d-flex align-center">
-              <v-btn
-                color="success"
-                class="btn"
-                dark
-                @click="
-                  openCreateStudent = true;
-                  operation = 'create';
-                  dataStudent = undefined;
-                  isUpdate = false;
-                "
-              >
-                + Aluno
-              </v-btn>
-            </v-col>
+            <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
+              <v-col cols="12" sm="3" class="d-flex align-center">
+                <Button
+                  color="primary"
+                  text="Buscar"
+                  icon="search"
+                  @onClick="getStudents(filter)"
+                />
+              </v-col>
+              <v-col cols="12" sm="3" class="d-flex align-center">
+                <Button
+                  color="success"
+                  text="Cadastrar"
+                  icon="plus"
+                  @onClick="
+                    openCreateStudent = true;
+                    operation = 'create';
+                    dataStudent = undefined;
+                    isUpdate = false;"
+                  />
+              </v-col>
+            </div>
           </v-row>
         </v-container>
       </template>
@@ -107,12 +109,14 @@
 </template>
 
 <script>
-import { listStudents } from "../services";
+// import { listStudents } from "../services";
 import DialogMessage from "./DialogMessage";
 import formatCPF from "../views/utils/formatCPF";
 import DialogUpdateStudent from "./DialogUpdateStudent";
 import DialogConfirmationDelete from "./DialogConfirmationDelete";
 import DialogCreateStudent from "./DialogCreateStudent";
+
+import Button from "../components/Button/Button.vue";
 
 export default {
   data: () => ({
@@ -145,6 +149,7 @@ export default {
     DialogUpdateStudent,
     DialogConfirmationDelete,
     DialogCreateStudent,
+    Button,
   },
   created() {
     this.getStudents();
@@ -155,20 +160,21 @@ export default {
       this.status = status;
       this.openMessage = true;
     },
-    async getStudents(filter) {
-      try {
-        const { data, status } = await listStudents(filter);
+    async getStudents() {
+      console.log('Deu bom...')
+      // try {
+      //   const { data, status } = await listStudents(filter);
 
-        if (data.data.length === 0) {
-          this.openModal(data, status);
-          return;
-        }
+      //   if (data.data.length === 0) {
+      //     this.openModal(data, status);
+      //     return;
+      //   }
 
-        this.students = data.data;
-      } catch (error) {
-        const { status, data } = error.response;
-        this.openModal(data, status);
-      }
+      //   this.students = data.data;
+      // } catch (error) {
+      //   const { status, data } = error.response;
+      //   this.openModal(data, status);
+      // }
     },
     async deleteOpen(item) {
       if (item) this.student = item;

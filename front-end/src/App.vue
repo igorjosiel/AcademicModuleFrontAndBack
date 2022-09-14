@@ -38,7 +38,7 @@
       <v-toolbar-title>{{ route }}</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
+    <v-main style="padding: 100px 0px 0px 300px;">
       <router-view />
     </v-main>
   </v-app>
