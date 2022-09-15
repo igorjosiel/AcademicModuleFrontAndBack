@@ -58,7 +58,7 @@
             <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
               <v-col cols="12" sm="3" class="d-flex align-center">
                 <Button
-                  color="primary"
+                  backgroundColor="primary"
                   text="Buscar"
                   icon="search"
                   @onClick="getStudents(filter)"
@@ -66,7 +66,7 @@
               </v-col>
               <v-col cols="12" sm="3" class="d-flex align-center">
                 <Button
-                  color="success"
+                  backgroundColor="success"
                   text="Cadastrar"
                   icon="plus"
                   @onClick="

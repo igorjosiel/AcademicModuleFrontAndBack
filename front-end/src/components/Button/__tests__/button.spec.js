@@ -4,7 +4,7 @@ import Button from "../Button.vue";
 const renderElement = () => {
     const element = mount(Button, {
         propsData: {
-            color: 'blue',
+            backgroundColor: 'blue',
             text: 'Teste',
             icon: 'icon',
         }

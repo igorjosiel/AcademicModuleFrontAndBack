@@ -1,5 +1,5 @@
 <template>
-    <v-btn :color="color" dark class="btn default-btn" @click="$emit('onClick')">
+    <v-btn :color="backgroundColor" dark class="btn default-btn" @click="$emit('onClick')">
         <v-icon>{{ renderIcon(icon) }}</v-icon>
         {{ text }}
     </v-btn>
@@ -10,7 +10,7 @@
 
     export default {
         name: "Button",
-        props: ['color', 'text', 'icon'],
+        props: ['backgroundColor', 'text', 'icon'],
         methods: {
             renderIcon(thisIcon) {
                 const icons = {
