@@ -28,7 +28,7 @@
       :headers="headers"
       :items="students"
       sort-by="ra"
-      class="elevation-1 borderContainers"
+      class="borderContainers"
     >
       <template v-slot:top>
         <v-container
@@ -41,22 +41,18 @@
             }
           "
         >
-          <v-row no-gutters class="borderContainers" style="background: #f5f5f5;">
+          <v-row no-gutters class="borderContainers" style="background: #f5f5f5; padding-right: 10px;">
+            <Column sm="4">
+              <Input label="Nome" :value="filter.name" id="childComponent" />
+            </Column>
             <v-col cols="12" sm="4">
-              <v-text-field
-                v-model="filter.name"
-                label="Nome"
-                class="pl-2"
-              ></v-text-field>
+              <Input label="CPF" :value="filter.cpf" />
             </v-col>
             <v-col cols="12" sm="4">
-              <v-text-field v-model="filter.cpf" label="CPF" class="pl-2"></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field v-model="filter.ra" label="RA" class="pl-2"></v-text-field>
+              <Input label="RA" :value="filter.ra" />
             </v-col>
             <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
-              <v-col cols="12" sm="3" class="d-flex align-center">
+              <v-col cols="12" sm="3">
                 <Button
                   backgroundColor="primary"
                   text="Buscar"
@@ -64,7 +60,7 @@
                   @onClick="getStudents(filter)"
                 />
               </v-col>
-              <v-col cols="12" sm="3" class="d-flex align-center">
+              <v-col cols="12" sm="3">
                 <Button
                   backgroundColor="success"
                   text="Cadastrar"
@@ -116,7 +112,9 @@ import DialogUpdateStudent from "./DialogUpdateStudent";
 import DialogConfirmationDelete from "./DialogConfirmationDelete";
 import DialogCreateStudent from "./DialogCreateStudent";
 
-import Button from "../components/Button/Button.vue";
+import Input from "./Input.vue";
+import Button from "./Button.vue";
+import Column from "./Column.vue";
 
 export default {
   data: () => ({
@@ -150,6 +148,8 @@ export default {
     DialogConfirmationDelete,
     DialogCreateStudent,
     Button,
+    Input,
+    Column,
   },
   created() {
     this.getStudents();

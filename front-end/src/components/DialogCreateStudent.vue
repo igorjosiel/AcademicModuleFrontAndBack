@@ -46,14 +46,19 @@
           <small>Campos marcados com (*) são obrigatórios!</small>
         </v-card-text>
         <v-card-actions class="buttonsContainer">
-          <v-btn
+          <Button
+            backgroundColor="orange darken-1"
+            text="Cancelar"
+            @onClick="$emit('closeModal')"
+          />
+          <!-- <v-btn
             color="orange darken-1"
             class="buttons"
             text
             @click="$emit('closeModal')"
           >
             Cancelar
-          </v-btn>
+          </v-btn> -->
           <v-btn color="green darken-1" class="buttons" text @click="addStudent">
             Salvar
           </v-btn>
@@ -73,6 +78,8 @@
 <script>
 import { createStudent } from "../services";
 import DialogMessage from "./DialogMessage";
+
+import Button from "./Button.vue";
 
 export default {
   data() {
@@ -107,6 +114,7 @@ export default {
     },
   },
   components: {
+    Button,
     DialogMessage,
   },
 };
