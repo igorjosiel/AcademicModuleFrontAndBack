@@ -11,6 +11,7 @@
     "start": "yarn serve"
   },
   "dependencies": {
+    "@mdi/js": "^7.0.96",
     "axios": "^0.23.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",

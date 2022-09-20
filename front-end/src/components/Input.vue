@@ -7,6 +7,7 @@
         :required="required ? 'true' : 'false'"
         class="pl-2"
         clearable="true"
+        filled
     />
 </template>
 

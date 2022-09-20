@@ -31,27 +31,34 @@
       class="borderContainers"
     >
       <template v-slot:top>
-        <v-container
-          class="grey lighten-5"
+        <v-card
+          :elevation="10"
           style="
             max-width: 1440px !important;
-            margin-top: 20px;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            margin-top: 2%;
             .v-application {
-              padding-left: 0px !important;
+              margin-bottom: 20px;
+              border-radius: 10px;
+              background-color: white;
             }
           "
         >
-          <v-row no-gutters class="borderContainers" style="background: #f5f5f5; padding-right: 10px;">
-            <Column sm="4">
-              <Input label="Nome" :value="filter.name" id="childComponent" />
-            </Column>
-            <v-col cols="12" sm="4">
+          <v-row no-gutters class="borderContainers" style="padding-right: 10px; margin-top: 10px;">
+            <v-col cols="12" sm="4" style="margin-top: 20px;">
+              <Input label="Nome" :value="filter.name" />
+            </v-col>
+            <v-col cols="12" sm="4" style="margin-top: 20px;">
               <Input label="CPF" :value="filter.cpf" />
             </v-col>
-            <v-col cols="12" sm="4">
+            <v-col cols="12" sm="4" style="margin-top: 20px;">
               <Input label="RA" :value="filter.ra" />
             </v-col>
-            <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
+          </v-row>
+        </v-card>
+        <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
               <v-col cols="12" sm="3">
                 <Button
                   backgroundColor="primary"
@@ -73,8 +80,6 @@
                   />
               </v-col>
             </div>
-          </v-row>
-        </v-container>
       </template>
       <template v-slot:item.actions="{ item }">
         <v-icon
@@ -114,7 +119,6 @@ import DialogCreateStudent from "./DialogCreateStudent";
 
 import Input from "./Input.vue";
 import Button from "./Button.vue";
-import Column from "./Column.vue";
 
 export default {
   data: () => ({
@@ -149,7 +153,6 @@ export default {
     DialogCreateStudent,
     Button,
     Input,
-    Column,
   },
   created() {
     this.getStudents();
@@ -194,7 +197,6 @@ export default {
 .btn {
   border-radius: 10px;
   width: 60%;
-  height: 40px !important;
   margin: 10px auto;
 }
 .dialog {
