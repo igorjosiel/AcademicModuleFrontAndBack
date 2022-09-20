@@ -46,7 +46,7 @@
             }
           "
         >
-          <v-row no-gutters class="borderContainers" style="padding-right: 10px; margin-top: 10px;">
+          <v-row no-gutters style="padding-right: 10px; margin-top: 10px;">
             <v-col cols="12" sm="4" style="margin-top: 20px;">
               <Input label="Nome" :value="filter.name" />
             </v-col>
