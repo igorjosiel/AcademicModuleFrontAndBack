@@ -24,41 +24,37 @@
       v-bind:status="status"
     />
 
+    <!-- class="borderContainers" -->
     <v-data-table
       :headers="headers"
       :items="students"
       sort-by="ra"
-      class="borderContainers"
+      style="width: 95%;"
     >
       <template v-slot:top>
         <v-card
           :elevation="10"
           style="
-            max-width: 1440px !important;
-            margin-left: 2%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            margin-top: 2%;
             .v-application {
               margin-bottom: 20px;
-              border-radius: 10px;
+              border-radius: 7px;
               background-color: white;
             }
           "
         >
-          <v-row no-gutters style="padding-right: 10px; margin-top: 10px;">
-            <v-col cols="12" sm="4" style="margin-top: 20px;">
+          <v-row no-gutters style="padding-left: 2%;">
+            <v-col cols="12" sm="4" style="margin-top: 25px;">
               <Input label="Nome" :value="filter.name" />
             </v-col>
-            <v-col cols="12" sm="4" style="margin-top: 20px;">
+            <v-col cols="12" sm="4" style="margin-top: 25px;">
               <Input label="CPF" :value="filter.cpf" />
             </v-col>
-            <v-col cols="12" sm="4" style="margin-top: 20px;">
+            <v-col cols="12" sm="4" style="margin-top: 25px;">
               <Input label="RA" :value="filter.ra" />
             </v-col>
           </v-row>
         </v-card>
-        <div style="display: flex; flex-direction: row; width: 100%; justify-content: flex-end;">
+        <div style="display: flex; flex-direction: row; justify-content: flex-end;">
               <v-col cols="12" sm="3">
                 <Button
                   backgroundColor="primary"
